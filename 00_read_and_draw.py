@@ -62,7 +62,7 @@ glyph_actor = vtk.vtkActor()
 glyph_actor.SetMapper(glyph_mapper)
 
 glyph_mapper.UseLookupTableScalarRangeOn()
-renderer.AddActor(glyph_actor)
+# renderer.AddActor(glyph_actor)
 
 # Set color lookuptable
 glyphs.Update()

@@ -1,11 +1,11 @@
 from __future__ import print_function
 import os
 import vtk
-from vtk.qt4.QVTKRenderWindowInteractor import QVTKRenderWindowInteractor
-from PyQt4 import QtCore, QtGui, uic
+from vtk.qt.QVTKRenderWindowInteractor import QVTKRenderWindowInteractor
+from PyQt5 import QtWidgets, QtGui, uic
 
 
-class GlyphViewerApp(QtGui.QMainWindow):
+class GlyphViewerApp(QtWidgets.QMainWindow):
     def __init__(self, data_dir):
 
         #Parent constructor
@@ -19,7 +19,7 @@ class GlyphViewerApp(QtGui.QMainWindow):
         self.ui = glyph_ui.Ui_MainWindow()
         self.ui.setupUi(self)
         self.vtk_widget = QGlyphViewer(self.ui.vtk_panel, data_dir)
-        self.ui.vtk_layout = QtGui.QHBoxLayout()
+        self.ui.vtk_layout = QtWidgets.QHBoxLayout()
         self.ui.vtk_layout.addWidget(self.vtk_widget)
         self.ui.vtk_layout.setContentsMargins(0,0,0,0)
         self.ui.vtk_panel.setLayout(self.ui.vtk_layout)
@@ -29,13 +29,13 @@ class GlyphViewerApp(QtGui.QMainWindow):
     def initialize(self):
         self.vtk_widget.start()
 
-class QGlyphViewer(QtGui.QFrame):
+class QGlyphViewer(QtWidgets.QFrame):
     def __init__(self, parent, data_dir):
         super(QGlyphViewer,self).__init__(parent)
 
         # Make tha actual QtWidget a child so that it can be re parented
         interactor = QVTKRenderWindowInteractor(self)
-        self.layout = QtGui.QHBoxLayout()
+        self.layout = QtWidgets.QHBoxLayout()
         self.layout.addWidget(interactor)
         self.layout.setContentsMargins(0,0,0,0)
         self.setLayout(self.layout)
@@ -143,7 +143,7 @@ if __name__ == "__main__":
         with open("glyph_ui.py","w") as py_ui_file:
             uic.compileUi(ui_file,py_ui_file)
 
-    app = QtGui.QApplication([])
+    app = QtWidgets.QApplication([])
     main_window = GlyphViewerApp("volume")
     main_window.show()
     main_window.initialize()
