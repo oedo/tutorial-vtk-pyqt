@@ -1,2 +1,2 @@
 vtk
-PyQt5
+PySide6

@@ -41,3 +41,9 @@ This is more tricky. The objective is to notify Qt after the user *picks* and ob
 1. Create *pick* events from *click* events. See the method `click_to_pick`.
 2. Capture *pick* events and emit a *QtSignal*. See the method `process_pick`
 3. Connect the new *QtSignal* to a method in the main application class.
+
+## A: Updates by oedo
+
+- modified to use PySide6 instead PyQt5.
+- to setup environments, `poetry install`.
+- before run 3-4, `pyside6-uic -o glyph_ui.py glyph_view.ui`.

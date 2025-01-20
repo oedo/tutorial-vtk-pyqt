@@ -2,7 +2,8 @@ from __future__ import print_function
 import os
 import vtk
 from vtk.qt.QVTKRenderWindowInteractor import QVTKRenderWindowInteractor
-from PyQt5 import QtWidgets, QtGui, uic
+from PySide6 import QtWidgets, QtGui
+from glyph_ui import Ui_MainWindow 
 
 
 class GlyphViewerApp(QtWidgets.QMainWindow):
@@ -139,9 +140,9 @@ if __name__ == "__main__":
     os.chdir(os.path.dirname(__file__))
 
     # Recompile ui
-    with open("glyph_view.ui") as ui_file:
-        with open("glyph_ui.py","w") as py_ui_file:
-            uic.compileUi(ui_file,py_ui_file)
+    # with open("glyph_view.ui") as ui_file:
+    #     with open("glyph_ui.py","w") as py_ui_file:
+    #         uic.compileUi(ui_file,py_ui_file)
 
     app = QtWidgets.QApplication([])
     main_window = GlyphViewerApp("volume")

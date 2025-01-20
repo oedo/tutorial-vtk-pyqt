@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "tutorial-vtk-pyqt"
+version = "0.1.0"
+description = ""
+authors = ["aono <aono@astom.co.jp>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+vtk = "^9.4.1"
+pyside6 = "^6.8.1.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
